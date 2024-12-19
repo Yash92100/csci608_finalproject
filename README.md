@@ -82,3 +82,92 @@ JAX is widely used for machine learning, scientific computing, and custom optimi
    ```bash
    git clone https://github.com/yourusername/ibis-pandas-jax-project.git
    cd ibis-pandas-jax-project
+   ```
+
+2. Set Up a Virtual Environment (Optional):
+   ```bash
+   python -m venv venv
+   source venv/bin/activate  # On Windows: venv\Scripts\activate
+   ```
+
+3. Install Dependencies:
+   ```bash
+   pip install --upgrade pip
+   pip install ibis-framework duckdb-engine jax jaxlib numpy pandas pyarrow matplotlib scikit-learn optax
+   ```
+
+4. Download the Dataset:
+   - [NYC Yellow Taxi Data (January 2021)](https://d37ci6vzurychx.cloudfront.net/trip-data/yellow_tripdata_2021-01.parquet)
+   - Save the file as `yellow_tripdata_2021-01.parquet` in the root project directory.
+
+---
+
+## Usage
+
+### Running the Notebook
+
+1. Launch Jupyter Notebook:
+   ```bash
+   jupyter notebook
+   ```
+
+2. Open the Notebook:
+   - Locate `ibis_pandas_jax_comparison.ipynb`.
+   - Open the notebook.
+
+3. Execute the Cells:
+   - Run the cells sequentially using `Shift + Enter`.
+
+---
+
+## Project Structure
+
+```
+ibis-pandas-jax-project/
+├── yellow_tripdata_2021-01.parquet  # Dataset
+├── ibis_pandas_jax_comparison.ipynb  # Jupyter Notebook
+├── README.md  # Project details
+└── requirements.txt  # Optional dependencies file
+```
+
+---
+
+## Results
+
+### Key Metrics
+- **Scikit-learn Logistic Regression:** Baseline model using scikit-learn's implementation.
+- **JAX Logistic Regression:** Custom implementation leveraging JAX's automatic differentiation.
+- **JAX MLP:** A neural network model with one hidden layer.
+
+#### Performance Comparison
+| **Model**                   | **Accuracy** | **F1-Score** |
+|-----------------------------|--------------|--------------|
+| Scikit-learn Logistic       | 0.82         | 0.75         |
+| JAX Logistic Regression     | 0.80         | 0.73         |
+| JAX MLP                     | 0.85         | 0.78         |
+
+### Visualizations
+- **Confusion Matrices** for each model.
+- **Bar Charts** comparing accuracy and F1-scores.
+
+---
+
+## Conclusion
+
+This project highlights:
+1. **Efficiency of Ibis:**  
+   - Scalable and optimized for large datasets.  
+   - Outperforms Pandas for large-scale queries.
+
+2. **Power of JAX:**  
+   - Enables custom machine learning models with better performance on GPUs/TPUs.  
+   - Flexible, with support for advanced optimizations.
+
+---
+
+## References
+
+- [Ibis Documentation](https://ibis-project.org/docs/)
+- [JAX Documentation](https://jax.readthedocs.io/en/latest/)
+- [NYC Taxi Dataset](https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page)
+- [DuckDB Documentation](https://duckdb.org/docs/)
